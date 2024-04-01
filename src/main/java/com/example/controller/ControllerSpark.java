@@ -47,7 +47,7 @@ public class ControllerSpark {
                     return gson.toJson(employee);
                 } else {
                     res.status(404);
-                    return "Employee not found";
+                    return "Funcionario não encontrado";
                 }
             });
 
@@ -55,20 +55,20 @@ public class ControllerSpark {
                 EmployeeEntity employee = gson.fromJson(req.body(), EmployeeEntity.class);
                 EmployeeService.addEmployee(employee);
                 res.status(201);
-                return "Employee added successfully";
+                return "Funcionario adicionado com sucesso";
             });
 
             put("/:id", (req, res) -> {
                 String id = req.params(":id");
                 EmployeeEntity employee = gson.fromJson(req.body(), EmployeeEntity.class);
                 EmployeeService.updateEmployee(id, employee);
-                return "Employee updated successfully";
+                return "Funcionario atualizado com sucesso";
             });
 
             delete("/:id", (req, res) -> {
                 String id = req.params(":id");
                 EmployeeService.deleteEmployee(id);
-                return "Employee deleted successfully";
+                return "Funcionario deletado com sucesso";
             });
         });
 
@@ -86,28 +86,27 @@ public class ControllerSpark {
                     return gson.toJson(project);
                 } else {
                     res.status(404);
-                    return "Project not found";
-                }
+                    return "Projeto não encontrado";}
             });
 
             post("", (req, res) -> {
                 ProjectEntity project = gson.fromJson(req.body(), ProjectEntity.class);
                 ProjectService.addProject(project);
                 res.status(201);
-                return "Project added successfully";
+                return "Projeto adicionado";
             });
 
             put("/:id", (req, res) -> {
                 String id = req.params(":id");
                 ProjectEntity project = gson.fromJson(req.body(), ProjectEntity.class);
                 ProjectService.updateProject(id, project);
-                return "Project updated successfully";
+                return "Projeto atualizado";
             });
 
             delete("/:id", (req, res) -> {
                 String id = req.params(":id");
                 ProjectService.deleteProject(id);
-                return "Project deleted successfully";
+                return "Projeto deletado";
             });
         });
 
@@ -125,7 +124,7 @@ public class ControllerSpark {
                     return gson.toJson(task);
                 } else {
                     res.status(404);
-                    return "Task not found";
+                    return "Tarefa não encontrada";
                 }
             });
 
@@ -133,20 +132,20 @@ public class ControllerSpark {
                 TaskEntity task = gson.fromJson(req.body(), TaskEntity.class);
                 TaskService.addTask(task);
                 res.status(201);
-                return "Task added successfully";
+                return "Tarefa adicionada com sucesso";
             });
 
             put("/:id", (req, res) -> {
                 String id = req.params(":id");
                 TaskEntity task = gson.fromJson(req.body(), TaskEntity.class);
                 TaskService.updateTask(id, task);
-                return "Task updated successfully";
+                return "Tarefa atualizada com sucesso";
             });
 
             delete("/:id", (req, res) -> {
                 String id = req.params(":id");
                 TaskService.deleteTask(id);
-                return "Task deleted successfully";
+                return "Task deletada com sucesso";
             });
         });
         get("/departments", (req, res) -> {
